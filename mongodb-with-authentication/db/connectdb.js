@@ -1,7 +1,16 @@
+
+
 const mongoose = require('mongoose')
 
 const connectDB = (DATABASE_URL)=>{
-    return mongoose.connect(DATABASE_URL).then(()=>{
+
+    const DB_OPTIONS = {
+        user:'shivam',
+        pass:'shivam',
+        dbName : 'schooldb',
+        authSource : 'schooldb'
+    }
+    return mongoose.connect(DATABASE_URL, DB_OPTIONS).then(()=>{
         console.log('connected to db')
     }).catch((error)=>{
         console.log(error);
